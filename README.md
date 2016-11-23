@@ -31,7 +31,11 @@ If editing:
 * OPEN project folder ('php-ugly-sweater-store') in Code Editor of choice
 
 SQL Commands:
-* 
+* mysql> CREATE DATABASE sweaters;
+* mysql> USE sweaters;
+* mysql> CREATE TABLE stores (id serial PRIMARY KEY, name varchar (255), city varchar (255), state varchar (255));
+* mysql> CREATE TABLE stores_brands (id serial PRIMARY KEY, store_id int, brand_id int);
+* mysql> CREATE TABLE brands (id serial PRIMARY KEY, name varchar (255));
 
 Install and Configure PHP development environment - Please visit http://goo.gl/JDBJ0p for easy-to-follow instructions by Epicodus. In general, you will need to:
 * Download and Install 'MAMP' by visiting: https://www.mamp.info/en/downloads/.

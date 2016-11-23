@@ -1,0 +1,28 @@
+mysql> DESCRIBE stores;
++-------+---------------------+------+-----+---------+----------------+
+| Field | Type                | Null | Key | Default | Extra          |
++-------+---------------------+------+-----+---------+----------------+
+| id    | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(255)        | YES  |     | NULL    |                |
+| city  | varchar(255)        | YES  |     | NULL    |                |
+| state | varchar(255)        | YES  |     | NULL    |                |
++-------+---------------------+------+-----+---------+----------------+
+
+
+mysql> DESCRIBE brands;
++-------+---------------------+------+-----+---------+----------------+
+| Field | Type                | Null | Key | Default | Extra          |
++-------+---------------------+------+-----+---------+----------------+
+| id    | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(255)        | YES  |     | NULL    |                |
++-------+---------------------+------+-----+---------+----------------+
+
+
+mysql> DESCRIBE stores_brands;
++----------+---------------------+------+-----+---------+----------------+
+| Field    | Type                | Null | Key | Default | Extra          |
++----------+---------------------+------+-----+---------+----------------+
+| id       | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |
+| store_id | int(11)             | YES  |     | NULL    |                |
+| brand_id | int(11)             | YES  |     | NULL    |                |
++----------+---------------------+------+-----+---------+----------------+
