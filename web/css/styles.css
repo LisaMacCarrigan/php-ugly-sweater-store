@@ -1,0 +1,23 @@
+#fixed-menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 7em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 0px 0px 0px 50px;
+    list-style: none;
+    background-color: #000000;
+    color: #FFF;
+}
+
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    background-color: #269;
+    color: #FFF;
+}
