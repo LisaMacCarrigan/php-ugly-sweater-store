@@ -53,7 +53,7 @@
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO stores (name, city, state) VALUES ('{$this->getName()}', '{$this->getCity()}', '{$this->getState()}');");
-             $this->id = $GLOBALS['DB']->lastInsertId();
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function deleteAll()
