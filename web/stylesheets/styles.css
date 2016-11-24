@@ -1,0 +1,44 @@
+body {
+    background-color: #F5F5F5;
+}
+
+#fixed-menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 8em;
+    padding-top: 10px;
+    margin-top: 1em;
+    background-color: hsla(180, 100%, 27%, 0.7);
+    border-radius: 3em 0em 0em 3em;
+    z-index: 5;
+}
+
+#fixed-menu a {
+    color: black;
+}
+
+#fixed-menu ul {
+    list-style: none;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #FFF;
+}
+
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background-color: #000000;
+    color: #FFF;
+}
+footer p {
+    text-align: center;
+    padding-top: 5px;
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    font-size: 11px;
+}
