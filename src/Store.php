@@ -69,8 +69,8 @@
         static function getAll()
         {
             $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");
-            $stores = array();
-            foreach ($returned_stores as $store)
+            $stores = [];
+            foreach($returned_stores as $store)
             {
                 $name = $store['name'];
                 $city = $store['city'];
@@ -81,7 +81,6 @@
             }
             return $stores;
         }
-
 
     }
 
