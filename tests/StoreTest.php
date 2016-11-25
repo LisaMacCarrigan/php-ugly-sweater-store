@@ -126,6 +126,25 @@
             $this->assertEquals([$test_store_2], Store::getAll());
         }
 
+        function testUpdate()
+        {
+            // ARRANGE //
+            $name = "Sweater Swag";
+            $city = "Brooklyn";
+            $state = "NY";
+            $id = null;
+            $test_store = new Store($name, $city, $state, $id);
+            $test_store->save();
+
+            $new_name = "Cool Sweater Co.";
+
+            // ACT //
+            $test_store->update($new_name);
+
+            // ASSERT //
+            $this->assertEquals($new_name, $test_store->getName());     
+        }
+
     }
 
 ?>
