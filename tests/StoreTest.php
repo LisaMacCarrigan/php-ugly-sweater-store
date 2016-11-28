@@ -142,7 +142,29 @@
             $test_store->update($new_name);
 
             // ASSERT //
-            $this->assertEquals($new_name, $test_store->getName());     
+            $this->assertEquals($new_name, $test_store->getName());
+        }
+
+        function testAddBrand()
+        {
+            // ARRANGE //
+            $name = "Sweater Swag";
+            $city = "Brooklyn";
+            $state = "NY";
+            $id = null;
+            $test_store = new Store($name, $city, $state, $id);
+            $test_store->save();
+
+            $name = "Satirical Sweaters Co.";
+            $id = null;
+            $test_brand = new Brand($name, $id);
+            $test_brand->save();
+
+            // ACT //
+            $test_store->addBrand($test_brand);
+
+            // ASSERT //
+            $this->assertEquals([$test_brand], $test_store->getBrands());
         }
 
     }
