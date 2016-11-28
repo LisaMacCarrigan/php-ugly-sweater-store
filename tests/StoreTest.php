@@ -167,6 +167,35 @@
             $this->assertEquals([$test_brand], $test_store->getBrands());
         }
 
+        function testGetBrands()
+        {
+            // ARRANGE //
+            $name = "Sweater Swag";
+            $city = "Brooklyn";
+            $state = "NY";
+            $id = null;
+            $test_store = new Store($name, $city, $state, $id);
+            $test_store->save();
+
+            $name = "Satirical Sweaters Co.";
+            $id = null;
+            $test_brand = new Brand($name, $id);
+            $test_brand->save();
+            $test_store->addBrand($test_brand);
+
+            $name_2 = "Yarn Amalgamations & Accessories";
+            $id = null;
+            $test_brand_2 = new Brand($name, $id);
+            $test_brand_2->save();
+            $test_store->addBrand($test_brand_2);
+
+            // ACT //
+            $result = $test_store->getBrands();
+
+            // ASSERT //
+            $this->assertEquals([$test_brand, $test_brand_2], $result);
+        }
+
     }
 
 ?>
