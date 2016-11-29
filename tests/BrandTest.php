@@ -50,6 +50,25 @@
             $this->assertEquals($test_brand, $result[0]);
         }
 
+        function testDeleteAll()
+        {
+            // ARRANGE //
+            $name = "Satirical Sweaters Co.";
+            $id = null;
+            $test_brand = new Brand($name, $id);
+
+            $name_2 = "Knit Amalgamations";
+            $id = null;
+            $test_brand_2 = new Brand($name, $id);
+
+            // ACT //
+            Brand::deleteAll();
+            $result = Brand::getAll();
+
+            // ASSERT //
+            $this->assertEquals([], $result);
+        }
+
     }
 
 ?>
