@@ -196,6 +196,31 @@
             $this->assertEquals([$test_brand, $test_brand_2], $result);
         }
 
+        function testDeleteBrand()
+        {
+            // ARRANGE //
+            $name = "Sweater Swag";
+            $city = "Brooklyn";
+            $state = "NY";
+            $id = null;
+            $test_store = new Store($name, $city, $state, $id);
+            $test_store->save();
+            
+            $name = "Satirical Sweaters Co.";
+            $id = null;
+            $test_brand = new Brand($name, $id);
+            $test_brand->save();
+            $test_store->addBrand($test_brand);
+
+            $test_store->addBrand($test_brand);
+
+            // ACT //
+            $test_store->deleteBrand($test_brand->getId());
+
+            // ASSERT //
+            $this->assertEquals([], $test_store->getBrands());
+        }
+
     }
 
 ?>
