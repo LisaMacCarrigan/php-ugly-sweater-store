@@ -56,10 +56,12 @@
             $name = "Satirical Sweaters Co.";
             $id = null;
             $test_brand = new Brand($name, $id);
+            $test_brand->save();
 
             $name_2 = "Knit Amalgamations";
             $id = null;
             $test_brand_2 = new Brand($name, $id);
+            $test_brand_2->save();
 
             // ACT //
             Brand::deleteAll();
@@ -67,6 +69,26 @@
 
             // ASSERT //
             $this->assertEquals([], $result);
+        }
+
+        function testGetAll()
+        {
+            // ARRANGE //
+            $name = "Satirical Sweaters Co.";
+            $id = null;
+            $test_brand = new Brand($name, $id);
+            $test_brand->save();
+
+            $name_2 = "Knit Amalgamations";
+            $id = null;
+            $test_brand_2 = new Brand($name, $id);
+            $test_brand_2->save();
+
+            // ACT //
+            $result = Brand::getAll();
+
+            // ASSERT //
+            $this->assertEquals([$test_brand, $test_brand_2], $result);
         }
 
     }
