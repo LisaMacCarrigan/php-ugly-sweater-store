@@ -93,6 +93,19 @@
             $GLOBALS['DB']->exec("DELETE FROM stores_brands WHERE store_id = {$this->getId()} AND brand_id = $brand_id;");
         }
 
+        static function find($search_id)
+        {
+            $found_store = null;
+            $stores = Store::getAll();
+            foreach ($stores as $store) {
+                $store_id = $store->getId();
+                if ($store_id == $search_id) {
+                    $found_store = $store;
+                }
+            }
+            return $found_store;
+        }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM stores;");

@@ -205,7 +205,7 @@
             $id = null;
             $test_store = new Store($name, $city, $state, $id);
             $test_store->save();
-            
+
             $name = "Satirical Sweaters Co.";
             $id = null;
             $test_brand = new Brand($name, $id);
@@ -219,6 +219,32 @@
 
             // ASSERT //
             $this->assertEquals([], $test_store->getBrands());
+        }
+
+        function testFind()
+        {
+            // ARRANGE //
+            $name = "Sweater Swag";
+            $city = "Brooklyn";
+            $state = "NY";
+            $id = null;
+            $test_store = new Store($name, $city, $state, $id);
+            $test_store->save();
+
+            $name_2 = "The Sweat Factory";
+            $city_2 = "San Francisco";
+            $state_2 = "CA";
+            $id = null;
+            $test_store_2 = new Store($name_2, $city_2, $state_2, $id);
+            $test_store_2->save();
+
+            // ACT //
+            $id_1 = $test_store->getId();
+            $result = Store::find($id_1);
+
+            // ASSERT //
+            $this->assertEquals($test_store, $result);
+
         }
 
     }
