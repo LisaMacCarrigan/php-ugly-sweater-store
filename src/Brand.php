@@ -32,11 +32,35 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
-        // function delete()
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getId()};");
+        }
 
-        // function update($new_brand)
+        // function addStore($new_store)
 
-        // static function deleteAll()
+        function getStores()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands
+            JOIN stores_brands ON (stores_brands.brand_id = brands.id)
+            JOIN stores ON (stores.id = stores_brands.store_id)
+            WHERE brands.id = {$this->getId()};");
+            $stores = array();
+            foreach ($returned_stores as $store) {
+                $name = $store['name'];
+                $city = $store['city'];
+                $state = $store['state'];
+                $id = $store['id'];
+                $new_store = new Store($name, $city, $state, $id);
+                array_push($stores, $new_store);
+            }
+            return $stores;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands;");
+        }
 
         static function getAll()
         {
